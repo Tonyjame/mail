@@ -1,8 +1,8 @@
 # mail
+##### http://blog.csdn.net/baidu_30000217/article/details/51550259
 function sendMail($to, $title, $content) {       
         require_once '../mail/PHPMailerAutoload.php';
         $mail = new \PHPMailer(); //实例化
-
         $mail->IsSMTP(); // 启用SMTP
         $mail->Host='smtp.qq.com'; 
         $mail->SMTPAuth = true; 
@@ -17,14 +17,10 @@ function sendMail($to, $title, $content) {
         $mail->Subject = "=?utf-8?B?" . base64_encode($title) . "?=";
         $mail->Body = $content; 
         $mail->AltBody = "这是一个纯文本的身体在非营利的HTML电子邮件客户端"; 
-      $mail->Send();
-    }
+        $mail->Send();
+}
     
-    $to = '*****@qq.com'; //收件人邮箱
-    
-    
-    $title = '你好';
+$to = '*****@qq.com'; //收件人邮箱    
+$title = '你好';
 $content =$str;
-
-
 sendMail($to, $title, $content);
